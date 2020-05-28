@@ -1,0 +1,14 @@
+{% extends 'register/base.html'%}
+
+{% block title %}
+User login
+{% endblock %}
+
+{% block content%}
+<h1>Welcome!</h1>
+<form method="POST" class="form-group">
+	{% csrf_token %}
+	{{form}}
+	<button type="sumbit" class="btn btn-success">Register</button>
+</form>
+{% endblock %}
