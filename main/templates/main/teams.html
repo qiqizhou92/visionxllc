@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,7 +29,7 @@
       href="https://fonts.googleapis.com/css?family=Raleway"
       rel="stylesheet"
     />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css" />
     <title>Teams</title>
   </head>
   <body>
@@ -45,9 +46,9 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="{% url 'index' %}">
         <img
-          src="img/logo.png"
+          src= "{% static 'img/logo.png' %}"
           width="30"
           height="30"
           class="d-inline-block align-top"
@@ -58,15 +59,15 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.html"
+            <a class="nav-link" href="{% url 'index' %}"
               >Homepage <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="industry.html">Industry</a>
+            <a class="nav-link" href="{% url 'industry' %}">Industry</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="teams.html">Teams</a>
+            <a class="nav-link" href="{% url 'teams' %}">Teams</a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -81,12 +82,12 @@
               AI Marketplace
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="token.html">VNX Token</a>
+              <a class="dropdown-item" href="{% url 'token' %}">VNX Token</a>
               <a class="dropdown-item" href="http://vnx-mart.org">GPU Rent</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
           </li>
           <div id="google_translate_element"></div>
         </ul>
@@ -103,7 +104,7 @@
         <h1 class="display-4 text-lg-left">Executives</h1>
         <div class="row reveal-bottom">
           <div class="col-sm my-5">
-            <img src="img/teams/t1.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t1.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 Dr. Gu has over 30 years of RD and management experiences with
@@ -117,10 +118,10 @@
               </p>
             </div>
             <h4>DR. HARRY GU</h4>
-            <h6>Chief Technical Officer & Founder</h6>
+            <h6>Founder</h6>
           </div>
           <div class="col-sm my-5">
-            <img src="img/teams/t2.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t2.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 A former president of AMD China Sales, President of Advantech
@@ -132,7 +133,7 @@
             <h6>Chief Marketing Officer</h6>
           </div>
           <div class="col-sm my-5">
-            <img src="img/teams/t3.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t3.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 David started his career at Fidelity Investments working with
@@ -155,7 +156,7 @@
             <h6>Chief Financial Officer</h6>
           </div>
           <div class="col-sm my-5">
-            <img src="img/teams/t4.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t4.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 Mr.Nie Cong graduated from the Department of Electronic
@@ -195,7 +196,7 @@
         <h1 class="display-4 text-lg-left">Foundation</h1>
         <div class="row reveal-bottom">
           <div class="col-sm my-5">
-            <img src="img/teams/t5.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t5.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 Chuanfeng Lee is the co-founder and CMO of DeepBrain Chain and
@@ -211,7 +212,7 @@
             <h6>President of Foundation</h6>
           </div>
           <div class="col-sm my-5">
-            <img src="img/teams/t6.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t6.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 Feng He is the CEO of DeepBrain Chain. He was enrolled in a
@@ -226,7 +227,7 @@
             <h6>Foundation Advisor</h6>
           </div>
           <div class="col-sm my-5">
-            <img src="img/teams/t7.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t7.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 As a “deep tech” investor he has led multiple successful
@@ -243,7 +244,7 @@
             <h6>Foundation Advisor</h6>
           </div>
           <div class="col-sm my-5">
-            <img src="img/teams/t8.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t8.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 Kang-Hyun has served as the Professor in charge of Intelligent
@@ -270,7 +271,7 @@
         <h1 class="display-4 text-lg-left">Engineers</h1>
         <div class="row">
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t9.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t9.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 Hua has 18 years experience in AI, high performance computing,
@@ -286,7 +287,7 @@
             <h6>Principle AI Engineer</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t10.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t10.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 Dr. Zhu has published more than 10 research papers on top AI
@@ -303,7 +304,7 @@
             <h6>Senior AI Engineer</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t11.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t11.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 Dr. Xu, got her PhD degree in Electrical Engineering from
@@ -326,7 +327,7 @@
             <h6>Senior AI Enginee</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t12.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t12.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 Bachelor degree of computer Engineering from the University of
@@ -342,7 +343,7 @@
             <h6>AI Engineer</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t13.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t13.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 Master of Science in Electrical &amp; Computer Engineering in
@@ -359,7 +360,7 @@
             <h6>AI Engineer</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t14.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t14.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 Bachelor degree of Computer Engineering from Boston University.
@@ -373,7 +374,7 @@
             <h6>AI Engineer</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t15.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t15.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 Master's degree of Electrical & Computer Engineering from the
@@ -388,57 +389,57 @@
             <h6>Software Engineer</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t16.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t16.png' %}" class="img-fluid pb-2" />
             <h4>RAY HSIA</h4>
             <h6>AI Engineer</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t17.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t17.png' %}" class="img-fluid pb-2" />
             <h4>SHUNLIN YAO</h4>
             <h6>AI Engineer</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t18.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t18.png' %}" class="img-fluid pb-2" />
             <h4>KAIJUN JIA</h4>
             <h6>AI Engineer</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t19.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t19.png' %}" class="img-fluid pb-2" />
             <h4>QUANCONG WU</h4>
             <h6>AI Engineer</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t20.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t20.png' %}" class="img-fluid pb-2" />
             <h4>ZHENGMANG MA</h4>
             <h6>AI Engineer</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t21.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t21.png' %}" class="img-fluid pb-2" />
             <h4>ZIKUN QIAN</h4>
             <h6>AI Engineer</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t22.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t22.png' %}" class="img-fluid pb-2" />
             <h4>BONING ZHOU</h4>
             <h6>AI Engineer</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t23.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t23.png' %}" class="img-fluid pb-2" />
             <h4>GE ZHU</h4>
             <h6>AI Engineer</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t24.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t24.png' %}" class="img-fluid pb-2" />
             <h4>HANGSHI JIN</h4>
             <h6>AI Engineer</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t25.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t25.png' %}" class="img-fluid pb-2" />
             <h4>JING WANG</h4>
             <h6>Software Engineer</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t26.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t26.png' %}" class="img-fluid pb-2" />
             <h4>NINGTAO HU</h4>
             <h6>AI Engineer</h6>
           </div>
@@ -450,7 +451,7 @@
         <h1 class="display-4 text-lg-left">Marketing & Community</h1>
         <div class="row">
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t27.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t27.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 Rhyan has a background working in computer software and cutting
@@ -468,7 +469,7 @@
             <h6>Global Community & Market Development</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t28.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t28.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 Tomasz has an experience in working on websites, creating
@@ -489,7 +490,7 @@
             <h6>Website Developer & Community Support</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t29.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t29.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 Alex is a blockchain technology enthusiast who has various years
@@ -508,7 +509,7 @@
             <h6>North America Marketing & Community Support</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t30.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t30.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 John is currently working full time in an Automation role for in
@@ -522,7 +523,7 @@
             <h6>Community Support</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t31.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t31.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 A visionairy entrepeneur and early adaptor of blockchain
@@ -537,7 +538,7 @@
             <h6>Marketing Analyst</h6>
           </div>
           <div class="col-lg-3 my-5">
-            <img src="img/teams/t32.png" class="img-fluid pb-2" />
+            <img src="{% static 'img/teams/t32.png' %}" class="img-fluid pb-2" />
             <div class="overlay">
               <p>
                 Undergraduate study at the Nanjing Institute of Technology (now
@@ -574,7 +575,7 @@
               </h3>
               <p>250 W Tasman Dr</p>
               <p class="my-2">San Jose, CA 95134</p>
-              <p class="phone">phone: +1775 240 9793</p>
+              <p class="phone">phone: +1 408-418-6388</p>
               <p class="phone my-2">Fax: +1775 240 9793</p>
               <p class="phone">
                 Mail:
@@ -655,7 +656,7 @@
         <div class="row">
           <div class="col-md-8">
             <p class="copy-right mt-2">
-              Copyright © 2019 VisionX Corporation
+              Copyright © 2020 VisionX Corporation
             </p>
           </div>
           <div class="col-md-4">

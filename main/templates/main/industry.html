@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,7 +29,7 @@
       href="https://fonts.googleapis.com/css?family=Raleway"
       rel="stylesheet"
     />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css" />
     <title>Industry</title>
   </head>
   <body>
@@ -45,9 +46,9 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="{% url 'index' %}">
         <img
-          src="img/logo.png"
+          src="{% static 'img/logo.png' %}"
           width="30"
           height="30"
           class="d-inline-block align-top"
@@ -58,7 +59,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.html"
+            <a class="nav-link" href="{% url 'index' %}"
               >Homepage <span class="sr-only">(current)</span></a
             >
           </li>
@@ -66,7 +67,7 @@
             <a class="nav-link" href="#">Industry</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="teams.html">Teams</a>
+            <a class="nav-link" href="{% url 'teams' %}">Teams</a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -81,13 +82,13 @@
               AI Marketplace
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="token.html">VNX Token</a>
+              <a class="dropdown-item" href="{% url 'token' %}">VNX Token</a>
               <a class="dropdown-item" href="http://vnx-mart.org">GPU Rent</a>
             </div>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
           </li>
           <div id="google_translate_element"></div>
         </ul>
@@ -124,7 +125,7 @@
             </p>
           </div>
           <div class="col-lg-6 text-center about-right reveal-right">
-            <img src="img/Industry.png" alt="" class="img-fluid" />
+            <img src="{% static 'img/Industry.png' %}" alt="" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -313,7 +314,7 @@
               </ul>
             </div>
             <div class="col-lg-4 text-center about-right reveal-right">
-              <img src="img/icons/c11.png" alt="" class="img-fluid" />
+              <img src="{% static 'img/icons/c11.png' %}" alt="" class="img-fluid" />
             </div>
           </div>
         </div>
@@ -333,7 +334,7 @@
               </h3>
               <p>250 W Tasman Dr</p>
               <p class="my-2">San Jose, CA 95134</p>
-              <p class="phone">phone: +1775 240 9793</p>
+              <p class="phone">phone: +1 408-418-6388</p>
               <p class="phone my-2">Fax: +1775 240 9793</p>
               <p class="phone">
                 Mail:
@@ -414,7 +415,7 @@
         <div class="row">
           <div class="col-md-8">
             <p class="copy-right mt-2">
-              Copyright © 2019 VisionX Corporation
+              Copyright © 2020 VisionX Corporation
             </p>
           </div>
           <div class="col-md-4">

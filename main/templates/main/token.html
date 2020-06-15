@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,7 +29,10 @@
       href="https://fonts.googleapis.com/css?family=Raleway"
       rel="stylesheet"
     />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!-- bitcoin script -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css" />
     <title>Token</title>
   </head>
   <body>
@@ -45,9 +49,9 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="{% url 'index' %}">
         <img
-          src="img/logo.png"
+          src="{% static 'img/logo.png' %}" 
           width="30"
           height="30"
           class="d-inline-block align-top"
@@ -58,15 +62,15 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.html"
+            <a class="nav-link" href="{% url 'index' %}"
               >Homepage <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="industry.html">industry</a>
+            <a class="nav-link" href="{% url 'industry' %}">industry</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="teams.html">Teams</a>
+            <a class="nav-link" href="{% url 'teams' %}">Teams</a>
           </li>
           <li class="nav-item dropdown active">
             <a
@@ -81,12 +85,12 @@
               AI Marketplace
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="token.html">VNX Token</a>
+              <a class="dropdown-item" href="{% url 'token' %}">VNX Token</a>
               <a class="dropdown-item" href="http://vnx-mart.org">GPU Rent</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
           </li>
           <div id="google_translate_element"></div>
         </ul>
@@ -96,6 +100,7 @@
     <!-- token -->
     <div class="container py-5 my-5 text-center">
       <div>
+        <!--
         <h1 class="about-title lined text-uppercase text-center py-5">
           VNX Trend
         </h1>
@@ -109,6 +114,31 @@
           data-base="USD"
           data-secondary="BTC"
         ></div>
+
+      -->
+
+        <!-- bitcoin -->
+        <section
+          class="bitcoin bg-light text-dark text-center reveal-top py-5"
+        >
+          <div class="container text-center">
+            <div class="py-5">
+              <h1 class="about-title lined text-uppercase text-center">
+                VNX Trend
+              </h1>
+            </div>
+            <div class="row mb-5">
+              <div class="container text-center">
+                <div id="graph1"></div>
+              </div>
+              
+              <div class="container text-center">
+                <div id="graph2"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </div>
 
       <div class="py-5 mt-5">
@@ -122,13 +152,13 @@
         </h4>
         <div class="row mt-5">
           <div class="col-sm">
-            <img src="img/KuCoin.png" class="img-fluid-small pb-3" />
+            <img class="img-fluid-small pb-3" src="{% static 'img/KuCoin.png' %}"  />
           </div>
           <div class="col-sm">
-            <img src="img/LBank.jpeg" class="img-fluid-small pb-3" />
+            <img class="img-fluid-small pb-3" src="{% static 'img/LBank.jpeg' %}"  />
           </div>
           <div class="col-sm">
-            <img src="img/McAfeeDEX.jpeg" class="img-fluid-small pb-3" />
+            <img class="img-fluid-small pb-3" src="{% static 'img/McAfeeDEX.jpeg' %}"  />
           </div>
         </div>
         <div class="row">
@@ -162,7 +192,7 @@
         <h1 class="about-title lined text-uppercase text-center pt-5 pb-3">
           VNX Sale and Distribution
         </h1>
-        <img class="img-fluid" src="img/token1.png" />
+        <img class="img-fluid" src="{% static 'img/token1.png' %}"  />
       </div>
     </div>
     <!-- //token -->
@@ -177,7 +207,7 @@
               </h3>
               <p>250 W Tasman Dr</p>
               <p class="my-2">San Jose, CA 95134</p>
-              <p class="phone">phone: +1775 240 9793</p>
+              <p class="phone">phone: +1 408-418-6388</p>
               <p class="phone my-2">Fax: +1775 240 9793</p>
               <p class="phone">
                 Mail:
@@ -258,7 +288,7 @@
         <div class="row">
           <div class="col-md-8">
             <p class="copy-right mt-2">
-              Copyright © 2019 VisionX Corporation
+              Copyright © 2020 VisionX Corporation
             </p>
           </div>
           <div class="col-md-4">
@@ -292,5 +322,142 @@
     <!-- self defined scripts -->
     <script src="js/animation.js"></script>
     <script src="js/translate.js"></script>
+    <script>
+
+    //https://api.coindesk.com/v1/bpi/currentprice.json
+    //REQUEST DATA FROM API
+    function rand() {
+      return Math.random();
+    }
+    //get historic data for the perivous 31 days
+    var previousPrice  = [];
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = yyyy + '-' + mm + '-' + dd;
+    if (mm == "01"){
+      var lastMondaySameDay = yyyy + '-' + (12) + '-' + dd;
+    }
+    else{
+      var lastMon = String (mm -1 ).padStart(2,'0');
+      var lastMonSameDay = yyyy + '-' + lastMon + '-' + dd;
+    }
+
+    var days = new Array()
+    function getPreviousDataDate(days){
+      fetch('https://api.coindesk.com/v1/bpi/historical/close.json?start=' + lastMonSameDay + '&end=' +today)
+      .then(response => {
+        return response.json()
+      }).then(data => {
+        for (let dataOfEachDay in data.bpi) {
+          days.push(dataOfEachDay)
+        }
+        console.log(days);
+        return days;
+      })
+      return days;
+    }
+    days = getPreviousDataDate(days)
+    var previousMonthPrice=new Array();
+    function getPreviousDataPrice(previousMonthPrice){
+      fetch('https://api.coindesk.com/v1/bpi/historical/close.json?start=' + lastMonSameDay + '&end=' +today)
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        for (let dataOfEachDay in data.bpi) {
+          previousMonthPrice.push(data.bpi[dataOfEachDay]);
+        }
+
+        console.log(previousMonthPrice)
+        return previousMonthPrice;
+      })
+
+    }
+    previousMonthPrice = getPreviousDataPrice(previousMonthPrice)
+
+    var currentPrice ;
+    function getData(){
+    fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        currentPrice = data.bpi.USD.rate_float;
+      })
+      return currentPrice;
+    }
+
+
+
+    //PLOT Section
+    var xmlhttp = new XMLHttpRequest();
+    var url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+
+    //plot historical data
+    var data = [{
+      x: days,
+      y: previousMonthPrice,
+      type: 'scatter'
+    }];
+
+    var layout = {
+      title: 'Price Monthly Trend',
+      xaxis: {
+        title: 'Days',
+        showgrid: false,
+        zeroline: false
+      },
+      yaxis: {
+        title: 'Price',
+        showline: false
+      }
+    };
+    Plotly.newPlot("graph2", data, layout);
+
+    // var historicalData = [{
+    //   x: [getPreviousDataDate()],
+    //   y: [getPreviousDataPrice()],
+    //   mode: 'lines',
+    //   line: {color: '#80CAF6'}
+    // }]
+    // Plotly.plot('graph2', historicalData);
+
+
+
+    var time = new Date();
+
+    var data = [{
+      x: [time],
+      y: [getData()],
+      mode: 'lines',
+      line: {color: '#80CAF6'}
+    }]
+
+    var bitcoinLayout = {
+      title: "Current BTC Price",
+    }
+
+    Plotly.plot('graph1', data, bitcoinLayout);
+
+    //update
+    var cnt = 0;
+    var interval = setInterval(function() {
+
+      var time = new Date();
+
+      var update = {
+      x:  [[time]],
+      y: [[getData()]]
+      }
+
+      Plotly.extendTraces('graph1', update, [0])
+
+      if(cnt === 100) clearInterval(interval);
+    }, 1000);
+
+  </script>
   </body>
 </html>

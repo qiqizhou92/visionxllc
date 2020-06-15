@@ -56,7 +56,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="{% url 'index' %}">
         <img
           src="{% static 'img/logo.png' %}"
           width="30"
@@ -74,10 +74,10 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="industry.html">Industrial Application</a>
+            <a class="nav-link" href="{% url 'industry' %}">Industrial Application</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="teams.html">Our Teams</a>
+            <a class="nav-link" href="{% url 'teams' %}">Our Teams</a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -92,13 +92,13 @@
               AI Marketplace
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="token.html">VNX Token</a>
+              <a class="dropdown-item" href="{% url 'token' %}">VNX Token</a>
               <a class="dropdown-item" href="http://vnx-mart.org">GPU Rent</a>
             </div>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact Us</a>
+            <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
           </li>
 
           <li class="nav-item">
@@ -553,7 +553,7 @@
               </h3>
               <p>250 W Tasman Dr <br />San Jose, CA 95134</p>
               <p class="phone">
-                phone: +1775 240 9793 <br />Fax: +1775 240 9793
+                phone: +1 408-418-6388 <br />Fax: +1775 240 9793
               </p>
               <p class="phone">
                 Mail:
@@ -654,7 +654,7 @@
         <div class="row">
           <div class="col-md-8">
             <p class="copy-right mt-2">
-              Copyright © 2019 VisionX LLC
+              Copyright © 2020 VisionX LLC
             </p>
           </div>
           <div class="col-md-4">
