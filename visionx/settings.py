@@ -24,7 +24,7 @@ TEMPLATE_DIRS = ['os.path.join(BASE_DIR, "templates")']
 SECRET_KEY = 'vu8tgstnseflm6isxm6=-f+@3ozr2jx5oo_zs%3)evy-loafr0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 #ALLOWED_HOSTS = ['visionx.org', 'localhost', '127.0.0.1']
 ALLOWED_HOSTS = []
@@ -132,7 +132,7 @@ STATICFILES_DIRS = [
 ]
 #STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
-SECURE_SSL_REDIRECT = False
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
-#SECURE_HSTS_SECONDS = 10
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 10
