@@ -102,7 +102,11 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1:8000/register">Register</a>
+            <a class="nav-link" href="{% url 'career' %}">Career</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">Register</a>
           </li>
 
           <div id="google_translate_element"></div>
@@ -519,29 +523,6 @@
       </div>
     </section>
     <!-- //features -->
-
-    <!-- bitcoin -->
-    <section
-      class="bitcoin bg-light text-dark text-center reveal-top py-5"
-    >
-      <div class="container text-center">
-        <div class="py-5">
-          <h1 class="about-title lined text-uppercase text-center">
-            Current Bitcoin Price
-          </h1>
-        </div>
-        <div class="row mb-5">
-          <div class="container text-center">
-            <div id="graph1"></div>
-          </div>
-          
-          <div class="container text-center">
-            <div id="graph2"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- footer -->
     <footer class="newsletter_right pymd-5 py-4" id="footer">
       <div class="container text-center  text-white">
@@ -693,139 +674,5 @@
     <script src="{% static 'js/animation.js' %}"></script>
     <script src="{% static 'js/preLoader.js' %}"></script>
     <script src="{% static 'js/translate.js' %}"></script>
-    <script>
-
-    //https://api.coindesk.com/v1/bpi/currentprice.json
-    //REQUEST DATA FROM API
-    function rand() {
-      return Math.random();
-    }
-    //get historic data for the perivous 31 days
-    var previousPrice  = [];
-
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-    today = yyyy + '-' + mm + '-' + dd;
-    if (mm == "01"){
-      var lastMondaySameDay = yyyy + '-' + (12) + '-' + dd;
-    }
-    else{
-      var lastMon = String (mm -1 ).padStart(2,'0');
-      var lastMonSameDay = yyyy + '-' + lastMon + '-' + dd;
-    }
-
-    var days = new Array()
-    function getPreviousDataDate(days){
-      fetch('https://api.coindesk.com/v1/bpi/historical/close.json?start=' + lastMonSameDay + '&end=' +today)
-      .then(response => {
-        return response.json()
-      }).then(data => {
-        for (let dataOfEachDay in data.bpi) {
-          days.push(dataOfEachDay)
-        }
-        console.log(days);
-        return days;
-      })
-      return days;
-    }
-    days = getPreviousDataDate(days)
-    var previousMonthPrice=new Array();
-    function getPreviousDataPrice(previousMonthPrice){
-      fetch('https://api.coindesk.com/v1/bpi/historical/close.json?start=' + lastMonSameDay + '&end=' +today)
-      .then(response => {
-        return response.json()
-      })
-      .then(data => {
-        for (let dataOfEachDay in data.bpi) {
-          previousMonthPrice.push(data.bpi[dataOfEachDay]);
-        }
-
-        console.log(previousMonthPrice)
-        return previousMonthPrice;
-      })
-
-    }
-    previousMonthPrice = getPreviousDataPrice(previousMonthPrice)
-
-    var currentPrice ;
-    function getData(){
-    fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
-      .then(response => {
-        return response.json()
-      })
-      .then(data => {
-        currentPrice = data.bpi.USD.rate_float;
-      })
-      return currentPrice;
-    }
-
-
-
-    //PLOT Section
-    var xmlhttp = new XMLHttpRequest();
-    var url = "https://api.coindesk.com/v1/bpi/currentprice.json";
-
-    //plot historical data
-    var data = [{
-      x: days,
-      y: previousMonthPrice,
-      type: 'scatter'
-    }];
-
-    var layout = {
-      title: 'Price Monthly Trend',
-      xaxis: {
-        title: 'Days',
-        showgrid: false,
-        zeroline: false
-      },
-      yaxis: {
-        title: 'Price',
-        showline: false
-      }
-    };
-    Plotly.newPlot("graph2", data, layout);
-
-    // var historicalData = [{
-    //   x: [getPreviousDataDate()],
-    //   y: [getPreviousDataPrice()],
-    //   mode: 'lines',
-    //   line: {color: '#80CAF6'}
-    // }]
-    // Plotly.plot('graph2', historicalData);
-
-
-
-    var time = new Date();
-
-    var data = [{
-      x: [time],
-      y: [getData()],
-      mode: 'lines',
-      line: {color: '#80CAF6'}
-    }]
-
-
-    Plotly.plot('graph1', data);
-
-    //update
-    var cnt = 0;
-    var interval = setInterval(function() {
-
-      var time = new Date();
-
-      var update = {
-      x:  [[time]],
-      y: [[getData()]]
-      }
-
-      Plotly.extendTraces('graph1', update, [0])
-
-      if(cnt === 100) clearInterval(interval);
-    }, 1000);
-
-  </script>
   </body>
 </html>

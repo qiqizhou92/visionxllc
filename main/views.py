@@ -18,6 +18,6 @@ def industry(response):
 def teams(response):
 	return render(response, "main/teams.html", {})
 
-def token(response):
-	return render(response, "main/token.html", {})
+#def token(response):
+#	return render(response, "main/token.html", {})
 

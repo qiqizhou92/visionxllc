@@ -17,9 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from register import views as v
+from career import views as vc
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("register/", v.register, name="register"),
     path('', include("main.urls")),
+    path('career/', vc.career, name='career'),
+    path('career/', include('career.urls')),
+    path('token', include('tokenPage.urls')),
 ]

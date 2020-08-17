@@ -1,0 +1,496 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/ea720facc5.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Raleway font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <!-- bitcoin script -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css" />
+    <title>Token</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'index' %}">
+        <img
+          src="{% static 'img/logo.png' %}" 
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+          alt=""
+        />
+        VisionX
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}"
+              >Homepage <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'industry' %}">industry</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'teams' %}">Teams</a>
+          </li>
+          <li class="nav-item dropdown active">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              AI Marketplace
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'token' %}">VNX Token</a>
+              <a class="dropdown-item" href="http://vnx-mart.org">GPU Rent</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+          </li>
+          <div id="google_translate_element"></div>
+        </ul>
+      </div>
+    </nav>
+    <!-- //navbar -->
+    <!-- token -->
+    <div class="container py-5 my-5 text-center">
+      <div>
+        <!--
+        <h1 class="about-title lined text-uppercase text-center py-5">
+          VNX Trend
+        </h1>
+        <script
+          type="text/javascript"
+          src="https://files.coinmarketcap.com/static/widget/currency.js"
+        ></script>
+        <div
+          class="coinmarketcap-currency-widget"
+          data-currencyid="3520"
+          data-base="USD"
+          data-secondary="BTC"
+        ></div>
+
+      -->
+
+        <!-- bitcoin -->
+        <section
+          class="bitcoin bg-light text-dark text-center reveal-top py-5"
+        >
+          <div class="container text-center">
+            <div class="py-5">
+              <h1 class="about-title lined text-uppercase text-center">
+                VNX Trend
+              </h1>
+            </div>
+            <div class="row mb-5">
+              <div class="container text-center">
+                <div id="graph1"></div>
+              </div>
+              
+              <div class="container text-center">
+                <div id="graph2"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="py-5 mt-5">
+        <h1 class="about-title lined text-uppercase text-center py-5">
+          Exchange
+        </h1>
+        <h4>
+          Our utility token - VNX - directed to customers of our AI solutions,
+          data providers, programmers and investors, is available on these
+          exchanges:
+        </h4>
+        <div class="row mt-5">
+          <div class="col-sm">
+            <img class="img-fluid-small pb-3" src="{% static 'img/KuCoin.png' %}"  />
+          </div>
+          <div class="col-sm">
+            <img class="img-fluid-small pb-3" src="{% static 'img/LBank.jpeg' %}"  />
+          </div>
+          <div class="col-sm">
+            <img class="img-fluid-small pb-3" src="{% static 'img/McAfeeDEX.jpeg' %}"  />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <a
+              class="btn btn-lg btn-outline-primary"
+              href="https://www.kucoin.com/trade/VNX-BTC"
+              role="button"
+              >KUCOIN</a
+            >
+          </div>
+          <div class="col-sm">
+            <a
+              class="btn btn-lg btn-outline-primary"
+              href="https://www.lbank.info/exchange.html#/vnx/btc"
+              role="button"
+              >LBANK</a
+            >
+          </div>
+          <div class="col-sm">
+            <a
+              class="btn btn-lg btn-outline-primary"
+              href="https://twitter.com/cryptomindnews/status/1184297239293898753?s=20"
+              role="button"
+              >MCAFEEDEX</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="py-5 mt-5">
+        <h1 class="about-title lined text-uppercase text-center pt-5 pb-3">
+          VNX Sale and Distribution
+        </h1>
+        <img class="img-fluid" src="{% static 'img/token1.png' %}"  />
+      </div>
+    </div>
+    <!-- //token -->
+    <!-- footer -->
+    <footer class="newsletter_right pymd-5 py-4" id="footer">
+      <div class="container">
+        <div class="inner-sec py-md-5 py-3">
+          <div class="row mb-md-4 mb-md-3">
+            <div class="col-lg-3 col-md-6 social-info text-left">
+              <h3 class="tittle1 foot mb-md-5 mb-4 text-white">
+                Get in touch
+              </h3>
+              <p>250 W Tasman Dr</p>
+              <p class="my-2">San Jose, CA 95134</p>
+              <p class="phone">phone: +1 408-418-6388</p>
+              <p class="phone my-2">Fax: +1775 240 9793</p>
+              <p class="phone">
+                Mail:
+                <a href="support@visionx.org">support@visionx.org</a>
+              </p>
+            </div>
+            <div class="col-lg-3 col-md-6 social-info text-left">
+              <h3 class="tittle1 foot mb-md-5 mb-4 text-white">About Us</h3>
+              <p>
+                VisionX is a cross-industry high-performance AI collaboration
+                platform.
+              </p>
+              <p>
+                A sustainable, blockchain based incentive ecosystem to boost the
+                best AI solutions & datasets across each industry AND for each
+                customer.
+              </p>
+            </div>
+            <div class="col-lg-6 col-md-12 n-right tex-left">
+              <h3 class="tittle1 foot mb-md-5 mb-4 text-white">
+                Join Us Now!
+              </h3>
+              <p>
+                We are active on Twitter, Telegram, Medium, Reddit, YouTube,
+                Instagram, Facebook, LinkedIn, GitHub and Coinmarketcap.
+              </p>
+              <div class="social-footer">
+                <a
+                  href="https://twitter.com/visionxglobal"
+                  class="fab fa-twitter"
+                ></a>
+                <a
+                  href="https://t.me/VisionXGlobal"
+                  class="fab fa-telegram"
+                ></a>
+                <a
+                  href="https://medium.com/@VisionXGlobal"
+                  class="fab fa-medium"
+                ></a>
+                <a
+                  href="https://www.reddit.com/r/visionx"
+                  class="fab fa-reddit"
+                ></a>
+                <a
+                  href="https://www.youtube.com/channel/UCj0vzmPUv_UF0kO33sZIzvQ"
+                  class="fab fa-youtube"
+                ></a>
+                <a
+                  href="https://www.instagram.com/visionx.global/"
+                  class="fab fa-instagram"
+                ></a>
+                <a
+                  href="https://www.facebook.com/officialvisionxglobal/"
+                  class="fab fa-facebook"
+                ></a>
+                <a
+                  href="https://www.linkedin.com/company/visionxglobal/"
+                  class="fab fa-linkedin"
+                ></a>
+                <a
+                  href="https://github.com/DeepBrainChain/DBC-FederatedLearning-Client-VNX"
+                  class="fab fa-github"
+                ></a>
+                <a
+                  href="https://coinmarketcap.com/currencies/visionx/"
+                  class="fas fa-coins"
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- //footer -->
+
+    <div class="copyright py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <p class="copy-right mt-2">
+              Copyright © 2020 VisionX Corporation
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p>Powered by VisionX Corporation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+    <!-- self defined scripts -->
+    <script src="js/animation.js"></script>
+    <script src="js/translate.js"></script>
+    <script>
+
+    //https://api.coindesk.com/v1/bpi/currentprice.json
+    //REQUEST DATA FROM API
+    function rand() {
+      return Math.random();
+    }
+    //get historic data for the perivous 31 days
+    var previousPrice  = [];
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = yyyy + '-' + mm + '-' + dd;
+    if (mm == "01"){
+      var lastMondaySameDay = yyyy + '-' + (12) + '-' + dd;
+    }
+    else{
+      var lastMon = String (mm -1 ).padStart(2,'0');
+      var lastMonSameDay = yyyy + '-' + lastMon + '-' + dd;
+    }
+
+    var days = new Array()
+    function getPreviousDataDate(days){
+      fetch('https://api.coindesk.com/v1/bpi/historical/close.json?start=' + lastMonSameDay + '&end=' +today)
+      .then(response => {
+        return response.json()
+      }).then(data => {
+        for (let dataOfEachDay in data.bpi) {
+          days.push(dataOfEachDay)
+        }
+        console.log(days);
+        return days;
+      })
+      return days;
+    }
+    days = getPreviousDataDate(days)
+    var previousMonthPrice=new Array();
+    function getPreviousDataPrice(previousMonthPrice){
+      fetch('https://api.coindesk.com/v1/bpi/historical/close.json?start=' + lastMonSameDay + '&end=' +today)
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        for (let dataOfEachDay in data.bpi) {
+          previousMonthPrice.push(data.bpi[dataOfEachDay]);
+        }
+
+        console.log(previousMonthPrice)
+        return previousMonthPrice;
+      })
+
+    }
+    previousMonthPrice = getPreviousDataPrice(previousMonthPrice)
+
+    var currentPrice ;
+
+    function getData(){
+    fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        currentPrice = data.bpi.USD.rate_float;
+      })
+      return currentPrice;
+    }
+
+    var ETHPrice;
+    function getDataETH(){
+    fetch('https://api.pro.coinbase.com/products/ETH-USD/ticker')
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        ETHPrice = data.price;
+      })
+      return ETHPrice;
+    }
+
+    //PLOT Section
+    var xmlhttp = new XMLHttpRequest();
+    var url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+
+    //plot historical data
+    var time = new Date();
+
+    var data = [{
+      x: [time],
+      y: getDataETH(),
+      mode: 'lines',
+      line: {color: '#80CAF6'}
+    }];
+
+    var layout = {
+      title: 'Price Monthly Trend',
+      xaxis: {
+        title: 'Days',
+        showgrid: false,
+        zeroline: false
+      },
+      yaxis: {
+        title: 'Price',
+        showline: false
+      }
+    };
+    //Plotly.newPlot("graph2", data, layout);
+
+    var data = [{
+      x: [time],
+      y: [getDataETH()],
+      mode: 'lines',
+      line: {color: '#80CAF6'}
+    }]
+
+    var ETHLayout = {
+      title: "Current ETH Price",
+    }
+
+    Plotly.plot('graph2', data, ETHLayout);
+
+    //update
+    var cnt = 0;
+    var interval = setInterval(function() {
+
+      var time = new Date();
+
+      var update = {
+      x:  [[time]],
+      y: [[getDataETH()]],
+      }
+
+      Plotly.extendTraces('graph2', update, [0])
+
+      if(cnt === 100) clearInterval(interval);
+    }, 1000);
+
+    
+
+    var data = [{
+      x: [time],
+      y: [getData()],
+      mode: 'lines',
+      line: {color: '#80CAF6'}
+    }]
+
+    var bitcoinLayout = {
+      title: "Current BTC Price",
+    }
+
+    Plotly.plot('graph1', data, bitcoinLayout);
+
+    //update
+    var cnt = 0;
+    var interval = setInterval(function() {
+
+      var time = new Date();
+
+      var update = {
+      x:  [[time]],
+      y: [[getData()]]
+      }
+
+      Plotly.extendTraces('graph1', update, [0])
+
+      if(cnt === 100) clearInterval(interval);
+    }, 1000);
+
+  </script>
+  </body>
+</html>
