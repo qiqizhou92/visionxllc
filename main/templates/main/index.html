@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,21 +29,12 @@
       href="https://fonts.googleapis.com/css?family=Raleway"
       rel="stylesheet"
     />
-    <!-- bitcoin script -->
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
     <link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css" />
-    <title>Homepage</title>
+    <title>VisionX World</title>
   </head>
   <body>
-    <!-- Preloader -->
-    <div id="cover"></div>
-    <!-- end of preloader -->
-
     <!-- navbar -->
-    <nav
-      class="navbar bg-black navbar-expand-md navbar-dark fixed-top reveal-bottom"
-    >
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <button
         class="navbar-toggler"
         type="button"
@@ -69,238 +59,49 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Homepage <span class="sr-only">(current)</span></a
+            <a class="nav-link" href="{% url 'index' %}"
+              >About<span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'industry' %}">Industrial Application</a>
+            <a class="nav-link" href="https://visionx.world">AI SOLUTIONS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'teams' %}">Our Teams</a>
+            <a class="nav-link" href="{% url 'teams' %}">AI MARKETPLACE</a>
           </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdownMenuLink"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              AI Marketplace
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="{% url 'token' %}">VNX Token</a>
-              <a class="dropdown-item" href="http://vnx-mart.org">GPU Rent</a>
-            </div>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'teams' %}">AI COMMUNITY</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+            <a class="nav-link" href="{% url 'contact' %}">Contact US</a>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'career' %}">Career</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}">Register</a>
-          </li>
-
           <div id="google_translate_element"></div>
         </ul>
       </div>
     </nav>
     <!-- //navbar -->
-    <!-- slides -->
-    <section class="slides">
-      <div
-        id="carouselExampleIndicators"
-        class="carousel slide"
-        data-ride="carousel"
-      >
-        <ol class="carousel-indicators">
-          <li
-            data-target="#carouselExampleIndicators"
-            data-slide-to="0"
-            class="active"
-          ></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-          <!-- Slide One - Set the background image for this slide in the line below 'img/bg/bg1.jpg'-->
-          <div
-            class="carousel-item active"
-            style="background-image: url('{% static 'img/bg/bg1.jpg'%}')"
-          >
-            <div class="carousel-caption mb-5 reveal-bottom text-center">
-              <h1 class="mb-5 display-2 font-weight-bold">VisionX</h1>
-              <h2 class="my-5">
-                Redefining AI for Business
-              </h2>
-
-              <a
-                class="btn btn-primary mb-5 mr-3"
-                href="https://s3-us-west-1.amazonaws.com/visionx.org/VisionXwhitepaper1025-Engv2-ghs-no.pdf"
-                role="button"
-                >White Paper</a
-              >
-              <a
-                class="btn btn-outline-light mb-5"
-                href="contact.html"
-                role="button"
-                >Contact Us</a
-              >
-            </div>
+    <!-- introduction -->
+    <section class="Industry py-5 mt-5">
+      <div class="container mb-5 pb-5">
+        <h1 class="about-title py-5 lined text-uppercase text-center">
+          <p class="text-primary">ABOUT US</p>
+        </h1>
+        <div class="row mb-3 text-center">
+          <div class="col-lg-20 text-center">
+            <p class="h2">
+              <span class="font-weight-bold text-primary">VisionX</span>(VisionX.world) is an ecosystem for promotixng AI development and landing AI solutions in a de-centralized way. It consists of <span class="font-weight-bold text-primary">AI technology and product development</span> (VisionX.llc), <span class="font-weight-bold text-primary">AI marketplace</span> (AI-mart.org) and <span class="font-weight-bold text-primary">AI community</span> (VisionX.org).
+            </p>
+            <p></p>
+            <p class="h3">
+              The VisionX AI ecosystem, unlike traditional operations based on efforts from a single entity or organization, aims to utilize Blockchain technologies to conduct a de-centralized global operation and make AI applications highly efficient and sustainable.
+            </p>
           </div>
-          <!-- Slide Two - Set the background image for this slide in the line below -->
-          <div
-            class="carousel-item"
-            style="background-image: url('{% static 'img/bg/bg2.jpg' %}')"
-          >
-            <div class="carousel-caption text-center">
-              <h1 class="mb-5 heading-long font-weight-bold">
-                Quick Introduction
-              </h1>
-              <h4 class="mb-2">
-                Watch this 90 sec video to understand what's VisionX
-              </h4>
-              <iframe
-                class="mb-5 pb-5"
-                src="https://www.youtube.com/embed/p1qUdfyrR-I"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-          <!-- Slide Three - Set the background image for this slide in the line below -->
-          <div
-            class="carousel-item"
-            style="background-image: url('{% static 'img/bg/bg3.jpg' %}')"
-          >
-            <div class="carousel-caption mb-5 pb-5 text-center">
-              <h1 class="mb-5 font-weight-bold heading-long">Join Us Now!</h1>
-              <h4 class="mb-5">
-                We are active on Twitter, Telegram, Medium, Reddit, YouTube,
-                Instagram, Facebook, LinkedIn, GitHub and Coinmarketcap.
-              </h4>
-              <ul class="social mb-5">
-                <li>
-                  <a
-                    href="https://twitter.com/visionxglobal"
-                    class="fab fa-twitter"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://t.me/VisionXGlobal"
-                    class="fab fa-telegram"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://medium.com/@VisionXGlobal"
-                    class="fab fa-medium"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.reddit.com/r/visionx"
-                    class="fab fa-reddit"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.youtube.com/channel/UCj0vzmPUv_UF0kO33sZIzvQ"
-                    class="fab fa-youtube"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/visionx.global/"
-                    class="fab fa-instagram"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.facebook.com/officialvisionxglobal/"
-                    class="fab fa-facebook"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/company/visionxglobal/"
-                    class="fab fa-linkedin"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/DeepBrainChain/DBC-FederatedLearning-Client-VNX"
-                    class="fab fa-github"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://coinmarketcap.com/currencies/visionx/"
-                    class="fas fa-coins"
-                  ></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <a
-          class="carousel-control-prev"
-          href="#carouselExampleIndicators"
-          role="button"
-          data-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a
-          class="carousel-control-next"
-          href="#carouselExampleIndicators"
-          role="button"
-          data-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </section>
-    <!-- //slides -->
-
-    <!-- Parterners -->
-    <section class="container">
-      <div class="row press align-items-center text-center reveal-top">
-        <div class="press-item col-lg-2 col-sm-4 col-4">
-          <img class="img-fluid-med" src="{% static 'img/parterners/p1.jpg' %}" alt="" />
-        </div>
-        <div class="press-item col-lg-2 col-sm-4 col-4">
-          <img class="img-fluid-med" src="{% static 'img/parterners/p2.jpg' %}" alt="" />
-        </div>
-        <div class="press-item col-lg-2 col-sm-4 col-4">
-          <img class="img-fluid-med" src="{% static 'img/parterners/p3.jpg' %}" alt="" />
-        </div>
-        <div class="press-item col-lg-2 col-sm-4 col-4">
-          <img class="img-fluid-med" src="{% static 'img/parterners/p4.jpg' %}" alt="" />
-        </div>
-        <div class="press-item col-lg-2 col-sm-4 col-4">
-          <img class="img-fluid-med" src="{% static 'img/parterners/p5.jpg' %}" alt="" />
-        </div>
-        <div class="press-item col-lg-2 col-sm-4 col-4">
-          <img class="img-fluid-med" src="{% static 'img/parterners/p6.jpg' %}" alt="" />
         </div>
       </div>
     </section>
-    <!-- Parterners -->
-    <!-- about -->
-    <section class="about">
+    <!-- //introduction -->
+     <section class="about">
       <div class="container">
         <h1 class="about-title py-5 lined text-uppercase text-center">
           Our Mission
@@ -329,39 +130,7 @@
         </div>
       </div>
     </section>
-    <!-- //about -->
-    <!-- stats -->
-    <!--
-      <section class="stats my-5 reveal-top">
-        <div class="container">
-          <div class="row stat-box text-center">
-            <div class="col-sm-3 col-6 stats_info">
-              <span class="fa fa-briefcase"></span>
-              <p class="counter">16</p>
-              <h4>Years of Experience</h4>
-            </div>
-            <div class="col-sm-3 col-6 stats_info">
-              <span class="fa fa-user"></span>
-              <p class="counter">230</p>
-              <h4>Our Team Members</h4>
-            </div>
-            <div class="col-sm-3 col-6 stats_info">
-              <span class="fa fa-smile-o"></span>
-              <p class="counter">110</p>
-              <h4>Our Cooperations</h4>
-            </div>
-            <div class="col-sm-3 col-6 stats_info">
-              <span class="fa fa-users"></span>
-              <p class="counter">1045</p>
-              <h4>Satisfied Customers</h4>
-            </div>
-          </div>
-        </div>
-      </section>
-    -->
-    <!-- //stats -->
-    <!-- content -->
-    <!-- technology img/icons/c8.png-->
+
     <section class="technology bg-dark-self text-light">
       <div class="container text-center py-5">
         <h1
@@ -457,6 +226,7 @@
         </div>
       </div>
     </section>
+
     <!-- //technology -->
     <!-- strategy -->
     <section class="technology bg-light text-dark py-5 reveal-top">
@@ -525,109 +295,79 @@
     <!-- //features -->
     <!-- footer -->
     <footer class="newsletter_right pymd-5 py-4" id="footer">
-      <div class="container text-center  text-white">
-        <div class="py-md-5 py-5">
-          <div class="row mb-md-4">
-            <div class="col-lg-3 col-md-6 py-3">
-              <h3 class="mb-md-5 mb-4">
+      <div class="container">
+        <div class="inner-sec py-md-5 py-3">
+          <div class="row mb-md-4 mb-md-3">
+            <div class="col-lg-3 col-md-8 social-info text-left">
+              <h3 class="tittle1 foot mb-md-5 mb-4 text-white">
                 Get in touch
               </h3>
-              <p>250 W Tasman Dr <br />San Jose, CA 95134</p>
-              <p class="phone">
-                phone: +1 408-418-6388 <br />Fax: +1775 240 9793
-              </p>
+              <p>250 W Tasman Dr</p>
+              <p class="my-2">San Jose, CA 95134</p>
+              <p class="phone">phone: +1 408-418-6388</p>
+              <p class="phone my-2">Fax: +1775 240 9793</p>
               <p class="phone">
                 Mail:
                 <a href="support@visionx.org">support@visionx.org</a>
               </p>
             </div>
-            <div class="col-lg-3 col-md-6 py-3">
-              <h3 class="mb-md-5 mb-4">About Us</h3>
-              <p>
-                VisionX is a cross-industry high-performance AI collaboration
-                platform.
-              </p>
-              <p>
-                A sustainable, blockchain based incentive ecosystem to boost the
-                best AI solutions & datasets across each industry AND for each
-                customer.
-              </p>
-            </div>
-            <div class="col-lg-6 col-md-12 py-3">
-              <h3 class="mb-md-5 mb-4">
+            <div class="col-lg-6 col-md-12 n-right tex-left">
+              <h3 class="tittle1 foot mb-md-5 mb-4 text-white">
                 Join Us Now!
               </h3>
               <p>
                 We are active on Twitter, Telegram, Medium, Reddit, YouTube,
                 Instagram, Facebook, LinkedIn, GitHub and Coinmarketcap.
               </p>
-              <ul class="social-footer">
-                <li>
-                  <a
-                    href="https://twitter.com/visionxglobal"
-                    class="fab fa-twitter"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://t.me/VisionXGlobal"
-                    class="fab fa-telegram"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://medium.com/@VisionXGlobal"
-                    class="fab fa-medium"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.reddit.com/r/visionx"
-                    class="fab fa-reddit"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.youtube.com/channel/UCj0vzmPUv_UF0kO33sZIzvQ"
-                    class="fab fa-youtube"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/visionx.global/"
-                    class="fab fa-instagram"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.facebook.com/officialvisionxglobal/"
-                    class="fab fa-facebook"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.linkedin.com/company/visionxglobal/"
-                    class="fab fa-linkedin"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/DeepBrainChain/DBC-FederatedLearning-Client-VNX"
-                    class="fab fa-github"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://coinmarketcap.com/currencies/visionx/"
-                    class="fas fa-coins"
-                  ></a>
-                </li>
-              </ul>
+              <div class="social-footer">
+                <a
+                  href="https://twitter.com/visionxglobal"
+                  class="fab fa-twitter"
+                ></a>
+                <a
+                  href="https://t.me/VisionXGlobal"
+                  class="fab fa-telegram"
+                ></a>
+                <a
+                  href="https://medium.com/@VisionXGlobal"
+                  class="fab fa-medium"
+                ></a>
+                <a
+                  href="https://www.reddit.com/r/visionx"
+                  class="fab fa-reddit"
+                ></a>
+                <a
+                  href="https://www.youtube.com/channel/UCj0vzmPUv_UF0kO33sZIzvQ"
+                  class="fab fa-youtube"
+                ></a>
+                <a
+                  href="https://www.instagram.com/visionx.global/"
+                  class="fab fa-instagram"
+                ></a>
+                <a
+                  href="https://www.facebook.com/officialvisionxglobal/"
+                  class="fab fa-facebook"
+                ></a>
+                <a
+                  href="https://www.linkedin.com/company/visionxglobal/"
+                  class="fab fa-linkedin"
+                ></a>
+                <a
+                  href="https://github.com/DeepBrainChain/DBC-FederatedLearning-Client-VNX"
+                  class="fab fa-github"
+                ></a>
+                <a
+                  href="https://coinmarketcap.com/currencies/visionx/"
+                  class="fas fa-coins"
+                ></a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </footer>
+
+
     <!-- //footer -->
 
     <div class="copyright py-3">
@@ -635,7 +375,7 @@
         <div class="row">
           <div class="col-md-8">
             <p class="copy-right mt-2">
-              Copyright © 2020 VisionX LLC
+              Copyright © 2020 VisionX Corporation
             </p>
           </div>
           <div class="col-md-4">
@@ -644,6 +384,7 @@
         </div>
       </div>
     </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -665,7 +406,6 @@
       type="text/javascript"
       src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
     ></script>
-
     <!-- self defined scripts -->
     <script src="{% static 'js/jquery-2.1.1.js' %}"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>

@@ -62,34 +62,21 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="{% url 'index' %}"
-              >Homepage <span class="sr-only">(current)</span></a
+              >About<span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'industry' %}">Industry</a>
+            <a class="nav-link" href="#">AI TECHNOLOGY & PRODUCT</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'teams' %}">Teams</a>
+            <a class="nav-link" href="{% url 'teams' %}">AI MARKETPLACE</a>
           </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdownMenuLink"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              AI Marketplace
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="{% url 'token' %}">VNX Token</a>
-              <a class="dropdown-item" href="http://vnx-mart.org">GPU Rent</a>
-            </div>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'teams' %}">AI COMMUNITY</a>
           </li>
+
           <li class="nav-item active">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="{% url 'contact' %}">Contact US</a>
           </li>
           <div id="google_translate_element"></div>
         </ul>
